@@ -1,12 +1,15 @@
 const mongoose = require('mongoose');
 
 const UserSchema = new mongoose.Schema({
-    name: String,
+    fname: String,
+    lname: String,
+    handle: String,
     email: String,
     password: String,
     avatar: String,
     created: Date,
-    updated: Date
+    updated: Date,
+    contacts: [{ type: mongoose.Schema.Types.ObjectId, ref: 'User' }]
 });
 
 const User = mongoose.model('User', UserSchema);
